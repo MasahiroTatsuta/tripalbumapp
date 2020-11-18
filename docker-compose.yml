@@ -1,0 +1,50 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec puma -C config/puma.rb
+    tty: true 
+    stdin_open: true
+    links:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/myproject:cached
+      - tmp-data:/myproject/tmp/sockets
+      - public-data:/myproject/public
+
+  db:
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: docker_development
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql-data:/var/lib/mysql
+  
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+      - 80:80
+    restart: always
+    volumes:
+      - tmp-data:/myproject/tmp/sockets
+      - public-data:/myproject/public
+    depends_on:
+      - web 
+
+volumes:
+  public-data:
+  tmp-data:
+  mysql-data:
+  

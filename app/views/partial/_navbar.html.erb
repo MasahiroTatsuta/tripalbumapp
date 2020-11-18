@@ -1,0 +1,47 @@
+<div class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <%= link_to "", root_path, class: "navbar__brand navbar__mainLogo" %>
+    <div class="row">
+      <ul class="navbar-nav ml-md-auto align-items-center">
+        <div class="row">
+          <% unless user_signed_in? %>
+            <% if current_page?(root_path) %>
+              <li>
+                <%= link_to "サインイン", sign_in_path, class: "btn btn-primary commonNavBtn btn-sm" %>
+              </li>
+              <li>
+                <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-success commonNavBtn btn-sm" %>
+              </li>
+            <% end %>
+          <% end %>
+
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "投稿", new_post_path, class: "btn btn-primary btn-push" %>
+            </li>
+            <% unless current_page?(current_user) %>
+              <li>
+                <%= link_to "", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
+              </li>
+            <% end %> 
+            <% unless current_page?(root_path) %>
+              <li>
+                <%= link_to "", root_path, class: "nav-link commonNavIcon home-icon" %>
+              </li>
+            <% end %>
+            <% if @user == current_user %>
+              <li>
+                <button type="button" class="nav-link commonNavIcon setting" data-toggle="modal" data-target="#exampleModal"></button>
+              </li>
+            <% end %>
+            <% unless current_page?(searchs_path) %>
+              <li>
+                <%= link_to "", searchs_path, class: "nav-link commonNavIcon search-icon" %>
+              </li>
+            <% end %>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

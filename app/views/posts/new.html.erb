@@ -1,0 +1,38 @@
+<div class="d-flex flex-column align-items-center mt-3">
+  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
+    <div class="card">
+      <div class="card-header">
+        投稿画面
+      </div>
+      <div class="card-body">
+        <%= form_with model: @post, class: "upload-images p-0 border-0" do |f| %>
+          <div class="form-group row mt-2">
+            <div class="col-auto pr-0 profile-new-image">
+              <%= image_tag(current_user.avatar.variant(resize:'60x60').processed) if current_user.avatar.attached? %>
+            </div>
+            <div class="col pl-0">
+              <%= f.text_field :caption, class: "form-control", placeholder: "共有したいことを書いてね！", required: true %>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="col pl-0">
+              <%= f.label :tag_list, "ハッシュタグ (複数タグは半角スペースを空ける)" %>
+              <%= f.text_field :tag_list, value: @post.tag_list.join(','), "data-role" => "tagsinput", class: "form-control" %>
+            </div>
+            <div class="uploader">
+              <p>画像アップロード</p>
+            </div>
+            <%= f.file_field :images, :multiple => true %>
+            <div class="uploader">
+              <p>youtube動画アップロード</p>
+            </div>
+            <%= f.text_field :youtube_url, class: "form-control", placeholder: "youtube動画のurlを入れる" %> 
+          </div>
+          <div class="text-center push-btn">
+            <%= f.submit "投稿する", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

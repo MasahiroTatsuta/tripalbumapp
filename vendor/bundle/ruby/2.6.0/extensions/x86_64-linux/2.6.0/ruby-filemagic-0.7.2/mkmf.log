@@ -1,0 +1,172 @@
+have_library: checking for -lgnurx... -------------------- no
+
+"gcc -o conftest -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/x86_64-linux -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/backward -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include    -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -Wl,-rpath,/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -L/opt/local/lib -Wl,-rpath,/opt/local/lib -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L/usr/lib -Wl,-rpath,/usr/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -o conftest -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/x86_64-linux -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/backward -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include    -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -Wl,-rpath,/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -L/opt/local/lib -Wl,-rpath,/opt/local/lib -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L/usr/lib -Wl,-rpath,/usr/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby -lgnurx  -lm   -lc"
+/usr/bin/ld: cannot find -lgnurx
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: 
+15: int t(void) { ; return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for magic_open() in -lmagic... -------------------- yes
+
+"gcc -o conftest -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/x86_64-linux -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/backward -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include    -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -Wl,-rpath,/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -L/opt/local/lib -Wl,-rpath,/opt/local/lib -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L/usr/lib -Wl,-rpath,/usr/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby -lmagic  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘magic_open’ undeclared (first use in this function); did you mean ‘rb_file_open’?
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))magic_open; return !p; }
+                                                         ^~~~~~~~~~
+                                                         rb_file_open
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))magic_open; return !p; }
+/* end */
+
+"gcc -o conftest -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/x86_64-linux -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/backward -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include    -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -Wl,-rpath,/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -L/opt/local/lib -Wl,-rpath,/opt/local/lib -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L/usr/lib -Wl,-rpath,/usr/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby -lmagic  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void magic_open();
+15: int t(void) { magic_open(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for magic.h... -------------------- yes
+
+"gcc -E -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/x86_64-linux -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/backward -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include    -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <magic.h>
+/* end */
+
+--------------------
+
+have_func: checking for magic_version()... -------------------- yes
+
+"gcc -o conftest -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/x86_64-linux -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/backward -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include    -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -Wl,-rpath,/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -L/opt/local/lib -Wl,-rpath,/opt/local/lib -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L/usr/lib -Wl,-rpath,/usr/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lmagic  -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby -lmagic  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘magic_version’ undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))magic_version; return !p; }
+                                                         ^~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))magic_version; return !p; }
+/* end */
+
+"gcc -o conftest -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/x86_64-linux -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/backward -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include    -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -Wl,-rpath,/home/ec2-user/.rvm/rubies/ruby-2.6.3/lib -L/opt/local/lib -Wl,-rpath,/opt/local/lib -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L/usr/lib -Wl,-rpath,/usr/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lmagic  -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby -lmagic  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return 0;
+13: }
+14: extern void magic_version();
+15: int t(void) { magic_version(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for file/patchlevel.h... -------------------- no
+
+"gcc -E -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/x86_64-linux -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0/ruby/backward -I/home/ec2-user/.rvm/rubies/ruby-2.6.3/include/ruby-2.6.0 -I. -I/opt/local/include -I/usr/local/include -I/usr/include    -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: file/patchlevel.h: No such file or directory
+ #include <file/patchlevel.h>
+          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <file/patchlevel.h>
+/* end */
+
+--------------------
+

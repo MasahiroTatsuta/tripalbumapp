@@ -1,0 +1,41 @@
+<div class="main">
+  <div class="col-md-12 col-md-8 col-md-2 mx-auto">
+    <div class="tabs">
+      <div class="tab_content_description">
+        <div class="form-wrap">
+          <div class="form-group text-center">
+            <h2 class="mx-auto">ユーザー検索</h2>
+          </div>
+          <%= search_form_for @q, url: searchs_path do |f| %>
+            <div class="form-group">
+              <%= f.label :name_cont, "ユーザーネーム" %>
+              <%= f.search_field :name_cont, autofocus: true, required: true, placeholder: "ユーザーネーム", class: "form-control" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "検索", name: "button1", class: "btn btn-primary w-100" %>
+            </div>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <% if params[:button1] %>
+        <% if @users.any? %>
+          <% @users.each do |result| %>
+            <div class="search-card card-header align-items-center d-flex flex-row">
+              <%= link_to user_path(result.id), class: "no-text-decoration" do %>
+                <%= image_tag(result.avatar.variant(resize:'50x50').processed) if result.avatar.attached? %>
+              <% end %>
+              <%= link_to user_path(result.id), class: "post-user-name black-color no-text-decoration", title: result.name do %>
+                <strong><%= result.name %></strong>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="card-header align-items-center d-flex flex-row">
+            <h2>当てはまるユーザーはいません</h2>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

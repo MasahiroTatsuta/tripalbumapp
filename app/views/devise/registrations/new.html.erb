@@ -1,0 +1,61 @@
+<div class="main">
+  <div class="card devise-card">
+    <div class="form-wrap">
+      <div class="form-group text-center">
+        <h2 class="logo-img mx-auto"></h2>
+      </div>
+      <div class="form-group text-center">
+        <p class="mx-auto greeting">あなたの旅行アルバムを共有しましょう</p>
+      </div> 
+      <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :name, autofocus: true, placeholder: "フルネーム", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワードの確認", class: "form-control" %>
+        </div>
+
+        <div class="form-image">
+          <%= f.label :avatar, "画像" %>
+          <div class="form-image-body">
+            <%= f.file_field :avatar %>
+          </div>
+        </div>
+
+        <div class="form-profile">
+          <div class="form-group">
+            <%= f.label :text, "プロフィール" %>
+            <div>
+              <%= f.text_area :text, autofocus: true, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "登録する", class: "btn btn-primary w-100" %>
+        </div>
+      <% end %>
+
+      <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-block btn-social btn-google googlebtn" do %>
+        <span class="fa fa-google"></span> Googleアカウントでサインアップ
+      <% end %>
+
+      <br>
+
+      <p class="devise-link">
+        アカウントをお持ちですか？
+        <%= link_to "サインインする", new_user_session_path %>
+      </p>
+    </div>
+  </div>
+</div>

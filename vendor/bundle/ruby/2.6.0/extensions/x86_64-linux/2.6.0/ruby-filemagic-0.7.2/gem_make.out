@@ -1,0 +1,58 @@
+current directory: /home/ec2-user/environment/instaclone/vendor/bundle/ruby/2.6.0/gems/ruby-filemagic-0.7.2/ext/filemagic
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200626-13624-1jaxgv3.rb extconf.rb
+checking for -lgnurx... no
+checking for magic_open() in -lmagic... yes
+checking for magic.h... yes
+checking for magic_version()... yes
+checking for file/patchlevel.h... no
+creating Makefile
+
+current directory: /home/ec2-user/environment/instaclone/vendor/bundle/ruby/2.6.0/gems/ruby-filemagic-0.7.2/ext/filemagic
+make "DESTDIR=" clean
+
+current directory: /home/ec2-user/environment/instaclone/vendor/bundle/ruby/2.6.0/gems/ruby-filemagic-0.7.2/ext/filemagic
+make "DESTDIR="
+compiling filemagic.c
+filemagic.c: In function ‘rb_magic_flags’:
+filemagic.c:37:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (RTEST(g = rb_hash_aref(map, f))) {
+            ^
+filemagic.c:49:7: note: here
+       case T_FIXNUM:
+       ^~~~
+In file included from filemagic.c:1:0:
+filemagic.c: In function ‘rb_magic_version’:
+filemagic.h:71:53: warning: ‘%d’ directive writing between 1 and 9 bytes into a region of size 8 [-Wformat-overflow=]
+ #define RB_MAGIC_SET_VERSION(m, p) sprintf(version, "%d.%02d", m, p);
+                                                     ^
+filemagic.c:8:3: note: in expansion of macro ‘RB_MAGIC_SET_VERSION’
+   RB_MAGIC_SET_VERSION(magic_version() / 100, magic_version() % 100)
+   ^~~~~~~~~~~~~~~~~~~~
+filemagic.h:71:53: note: directive argument in the range [-21474836, 21474836]
+ #define RB_MAGIC_SET_VERSION(m, p) sprintf(version, "%d.%02d", m, p);
+                                                     ^
+filemagic.c:8:3: note: in expansion of macro ‘RB_MAGIC_SET_VERSION’
+   RB_MAGIC_SET_VERSION(magic_version() / 100, magic_version() % 100)
+   ^~~~~~~~~~~~~~~~~~~~
+filemagic.h:71:53: note: directive argument in the range [-99, 99]
+ #define RB_MAGIC_SET_VERSION(m, p) sprintf(version, "%d.%02d", m, p);
+                                                     ^
+filemagic.c:8:3: note: in expansion of macro ‘RB_MAGIC_SET_VERSION’
+   RB_MAGIC_SET_VERSION(magic_version() / 100, magic_version() % 100)
+   ^~~~~~~~~~~~~~~~~~~~
+filemagic.h:71:36: note: ‘sprintf’ output between 5 and 14 bytes into a destination of size 8
+ #define RB_MAGIC_SET_VERSION(m, p) sprintf(version, "%d.%02d", m, p);
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+filemagic.c:8:3: note: in expansion of macro ‘RB_MAGIC_SET_VERSION’
+   RB_MAGIC_SET_VERSION(magic_version() / 100, magic_version() % 100)
+   ^~~~~~~~~~~~~~~~~~~~
+filemagic.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+linking shared-object filemagic/ruby_filemagic.so
+
+current directory: /home/ec2-user/environment/instaclone/vendor/bundle/ruby/2.6.0/gems/ruby-filemagic-0.7.2/ext/filemagic
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ruby_filemagic.so ./.gem.20200626-13624-1daevsg/filemagic

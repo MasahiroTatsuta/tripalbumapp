@@ -1,0 +1,160 @@
+<% unless user_signed_in? %>  
+  <div class="col-md-12 col-md-8 col-md-2 mx-auto">
+    <div class="topcard">
+      <div class="card-wrap">
+        <div class="top-image">                        
+          <div class="text-center my-auto">
+            <h1 class="mb-1 top-h1">we will be traveler!</h1>
+            <h2 class="mb-1 top-h2">〜あなたの旅行アルバムを共有しよう〜</h2>
+          </div>
+        </div>
+        <div class="content-section-heading">
+          <div class="row">
+            <div class="col-md-4 mb-5 mb-lg-0 text-center">
+              <span class="service-icon rounded-circle mx-auto mb-3">
+                <i class="far fa-images icon-1" aria-hidden="true"></i>
+              </span>
+              <h4>
+                <strong>つぶやき・写真投稿機能</strong>
+              </h4>
+              <p class="text-faded text-left mb-0">
+                旅行中に感じた思いや旅行で撮った写真を投稿することができます。youtube動画の投稿も可能です。投稿したユーザーにのみ、編集・削除が可能です。
+              </p>
+            </div>
+            <div class="col-md-4 mb-5 mb-lg-0 text-center">
+              <span class="service-icon rounded-circle mx-auto mb-3">
+                <i class="fas fa-user-tag icon-2" aria-hidden="true"></i>
+              </span>
+              <h4>
+                <strong>ユーザー・タグごとの<br>投稿表示が可能</strong>
+              </h4>
+              <p class="text-faded text-left mb-0">
+                ユーザーの検索はもちろん、登録タグからの絞り込んだ投稿を表示することができます。
+              </p>
+            </div>
+            <div class="col-md-4 mb-5 mb-lg-0 text-center">
+              <span class="service-icon rounded-circle mx-auto mb-3">
+                <i class="fa fa-comments-o icon-3" aria-hidden="true"></i>
+              </span>
+              <h4>
+                <strong>ユーザー同士で共有</strong>
+              </h4>
+              <p class="text-faded text-left mb-0">
+                投稿された口コミにはいいね！やコメントをすることができ、フォローを通じてユーザーと繋がることができます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card start-card">
+      <div class="form-wrap">
+        <div class="form-group text-center">
+          <h2 class="mx-auto top-h22">さあ、始めましょう！！</h2>
+        </div>
+        <br>
+        <div　class="top-btn">
+          <div class="top-signin text-center">
+            <p class="signin-comment">アカウントを持っている方はこちら</p>
+            <%= link_to "サインイン", sign_in_path, class: "btn btn-primary btn-lg" %>
+          </div>
+          <div class="top-signup text-center">
+            <p class="signin-comment">アカウントを持っていない方はこちら</p>
+            <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-success btn-lg" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<% if user_signed_in? %>
+  <% @posts.each do |post| %>
+    <div class="col-md-12 col-md-8 col-md-2 mx-auto">
+      <div class="card-wrap">
+        <div class="card">
+          <div class="card-header align-items-center d-flex flex-row">
+            <%= link_to user_path(post.user), class: "no-text-decoration" do %>
+              <%= image_tag(post.user.avatar.variant(resize:'50x50').processed) if post.user.avatar.attached? %>
+            <% end %>
+            <%= link_to user_path(post.user), class: "post-user-name black-color no-text-decoration", title: post.user.name do %>
+              <strong><%= post.user.name %></strong>
+            <% end %>
+            <% if post.user_id == current_user.id %>
+              <%= link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
+                <div class="delete-post-icon"></div>
+              <% end %>
+            <% end %>
+          </div>
+          <%= link_to(post_path(post)) do %>
+            <div class="row">
+              <% if post.images.count > 1 %>
+                <% post.images.each do |image|%>
+                  <div class="col-md-6 card-img">              
+                    <%= image_tag image, class: "card-img-top" %>
+                  </div>
+                <% end %>
+              <% else %>
+                <% post.images.each do |image|%>
+                  <div class="col-md-12 card-img">              
+                    <%= image_tag image, class: "card-img-top" %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+            <% if post.youtube_url.present? %>
+              <div class="youtube-movie">
+                <div class="youtube-movie-content">
+                  <iframe width="640" height="390" src="https://www.youtube.com/embed/<%= post.youtube_url %>" allowfullscreen></iframe>
+                </div>
+              </div>
+            <% end %>
+          
+            <div class="card-body">
+              <div class="card-caption m-2">
+                <strong>
+                  <%= post.caption %>
+                </strong>
+                <div class="light-color post-time no-text-decoration">
+                  <span><%= time_ago_in_words(post.created_at).upcase + "前" %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="card-body">
+            <div class="card-tag m-2">
+              <div>
+                <tbody>
+                  <% post.tag_list.each do |posttag| %>
+                    <tr>
+                      <%= link_to posttag, posts_path(post, tag_name: posttag), class: "label label-primary tag-design" %>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </div>
+            </div>
+            <div class="row parts">
+              <% if post.user_id != current_user.id %>
+                <div id="like-icon-post-<%= post.id.to_s %>">
+                  <% if post.liked_by(current_user).present? %>
+                    <%= link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                  <% else %>
+                    <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div id="like-text-post-<%= post.id.to_s %>">
+              <%= render "partial/like_text", { likes: post.likes } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+

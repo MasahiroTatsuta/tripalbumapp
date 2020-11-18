@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>tripalbum</title>
+    <%= csrf_meta_tags %>
+    <%= display_meta_tags site: 'tripalbum' %>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <%= render 'partial/navbar' %> 
+      <%= render 'partial/flash' %>
+      <div class="container">
+        <%= yield %>
+      </div>
+      <%= render 'partial/footer' %> 
+    </div>
+    
+  </body>
+</html>

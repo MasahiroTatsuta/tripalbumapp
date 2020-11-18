@@ -1,0 +1,15 @@
+.footerbar {
+  background-color: rgb(248, 247, 198);
+  border-bottom: 1px solid rgba(0, 0, 0, .0975);
+  height: 85px;
+  position: relative;
+}
+
+.copyright {
+  text-align: center;
+  &-word {
+    display: inline-block;
+    text-align: left;
+    font-size: 15px;
+  }
+}

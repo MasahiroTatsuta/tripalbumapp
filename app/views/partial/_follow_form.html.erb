@@ -1,0 +1,11 @@
+<div id="follow_form">
+  <div class="insta_btn2">
+    <% if current_user.following? @user %>
+      <%= link_to "", {controller: :users,action: :unfollow,user_id: @user.id}, class: "fa fa-handshake-o", method: :put %>
+      <p class="follow_me">Forrow me</p>
+    <% else %>
+      <%= link_to "", {controller: :users,action: :follow,user_id: @user.id}, class: "fa fa-handshake-o", method: :put %>
+      <p class="follow_me">Unforrow me</p>
+    <% end %>
+  </div>
+</div>

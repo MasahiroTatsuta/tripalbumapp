@@ -1,0 +1,46 @@
+.profile-wrap{
+  margin:40px 0px;
+}
+
+.profile-text {
+  padding: 30px 20px;
+  margin: 30px auto;
+  background-color: #eee;
+  border: 3px outset;
+  p {
+    white-space: pre-wrap;
+    font-size: 18px;
+    text-align: left;
+  }  
+}
+
+.round-img{
+  border-radius:50%;
+  width: 40px;
+  height: 40px;
+}
+
+.icon_image {
+  border-radius: 50px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.icon-name {
+  float: left;
+}
+
+.edit-profile-btn {
+  margin: 15px 0 0 0px;
+  font-weight: bold;
+  height: 26px;
+  line-height: 26px;
+  padding: 5px 20px 30px 20px;
+  border-color: #dbdbdb;
+  font-size: 16px;
+}
+
+.follow_word {
+  margin-top: 10px;
+}
+

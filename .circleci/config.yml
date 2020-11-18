@@ -1,0 +1,109 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/myproject
+    docker:
+      - image: circleci/ruby:2.6.5-node-browsers
+        environment:
+          - BUNDLER_VERSION: 2.1.4
+          - RAILS_ENV: 'test'
+
+      - image: circleci/mysql:5.7
+        command: [--default-authentication-plugin=mysql_native_password]
+        environment:
+          - MYSQL_DB: ci_test 
+          - MYSQL_HOST: 127.0.0.1
+          - MYSQL_USERNAME: 'root'
+          - MYSQL_PASSWORD: ''
+          - MYSQL_PORT: 3306         
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dep-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v1-dep-{{ .Branch }}-
+            - v1-dep-
+      - run:
+          name: update bundler
+          command: |
+            gem update --system
+            gem install bundler
+      
+      - run:
+          name: install gem dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dep-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      
+      - run:  
+          name: Yarn Install  
+          command: yarn install --cache-folder ~/.cache/yarn  
+
+      - restore_cache:  
+          keys:  
+            - yarn-cache-v1-{{ checksum "yarn.lock" }}  
+            - yarn-cache-v1-  
+
+      
+      - save_cache:  
+          key: yarn-cache-v1-{{ checksum "yarn.lock" }}  
+          paths:  
+            - ~/.cache/yarn
+      
+      - run: mv config/database.yml.ci config/database.yml
+
+      - run: mysql_config --socket
+
+      - run: bundle exec rails db:create
+
+      - run: bundle exec rails db:schema:load
+
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+
+            bundle exec rspec --format progress \
+                            --out /tmp/test-results/rspec.xml \
+                            --format progress \
+                            $TEST_FILES
+
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+
+      - run:
+          name: run rubocop
+          command: bundle exec rubocop --fail-level W --display-only-fail-level-offenses
+
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "43:7a:97:d7:42:8a:cf:aa:39:02:ec:62:fc:63:92:47"
+      - run: ssh tripalbum@54.248.183.11 "/var/www/tripalbum/deploy-me.sh"
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

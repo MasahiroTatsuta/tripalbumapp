@@ -1,0 +1,20 @@
+<div class="follower-wrap">
+  <div class="row">
+    <div class="follow_list">
+      <div class="follow_word">
+        <h2>あなたをフォローした人</h2>
+      </div>
+      <% @user.followers.each do |user| %>
+        <div class="search-card card-header align-items-center d-flex flex-row">
+          <%= link_to user_path(user), class: "no-text-decoration" do %>
+            <%= image_tag(user.avatar.variant(resize:'50x50').processed) if user.avatar.attached? %>
+          <% end %>
+          <%= link_to user_path(user), class: "post-user-name black-color no-text-decoration", title: user.name do %>
+            <strong><%= user.name %></strong>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
