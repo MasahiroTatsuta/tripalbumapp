@@ -48,6 +48,7 @@ gem 'spring-commands-rspec'
 gem 'will_paginate', '3.1.6'
 gem 'aws-sdk-codedeploy', '~> 1.37'
 gem 'aws-sdk-s3', '~> 1.2'
+gem 'pagy', '~> 2.1', '>= 2.1.3'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
