@@ -1,0 +1,13 @@
+# pack-refs with: peeled fully-peeled sorted 
+78769be37af6ba8b5e509c2b94282bbceec1e5e4 refs/heads/integration
+c5ac7b9601c4af01eb4d9112330b27be4d694ecc refs/heads/master
+7ee9a35ae0770385b7aed221e22fa8ca71f317bf refs/heads/rails_2.3.x
+4bd761e12398076d247bb34c7f84b8e27ca96913 refs/heads/rails_3
+aae831a916112e661e3af41147f3cde1c5e6fc3c refs/tags/v0.1.0
+^165137a247c63c08d871b50e871b529d2e4862e1
+9eebdf74668f72ce088af48d741d9dc6b094ca9e refs/tags/v0.1.1
+^4bd761e12398076d247bb34c7f84b8e27ca96913
+95883f8d2260d666316fafdc37476afd7bc5d988 refs/tags/v0.2.0
+^1da827c3c1429389bad10bddebab24922e4ccf1b
+0ad6fab62b4ea91c9ec630f7276a5bfb07876085 refs/tags/v0.2.1
+^feadb8f269f45127a2eee4771c679b52f52ae40f
