@@ -1,28 +1,32 @@
 # tripalbum
 
+## 概要
 このアプリは、写真及びYouTube動画を用いた旅行において楽しかったことやおすすめスポットなどを共有することで、また安心して旅行出来るようになるまでに旅行に対するモチベーションを高めることを目的としたアプリです。
 
-## 使用技術:
-* Ruby 2.5.3
+## 使用技術
+* フロントエンド (HTML, CSS(Sass), Bootstrap4, Javascript(JQuery))
 
-* Ruby on Rails 5.2.4.3
+* バックエンド (Ruby 2.6.3, Ruby on Rails 6.0.3.3)
 
-* sqlite3 (開発)
+* データベース (Mysql)
 
-* Mysql2 (本番用)
+* テスト (Rspec, FactoryBot, shoulda_matcher)
 
-* Rspec
+* Webサーバ (Puma + Nginx(socket通信))
 
-* jQuery
+* 環境構築用コンテナ (docker, docker-compose)
 
-* Bootstrap4
+* AWS(VPC, EC2, ALB, Route53, CloudWatch, ACM, CLI)
 
-* AWS(VPC, Route53, ECS, ECR)
+* 自動テスト・デプロイ用パイプライン (Circleci)
 
-* Puma + Nginx + CircleCI (Docker)
+## インフラ構成
+後日掲載予定 (作成中)
+
+## DB構成
+後日掲載予定 (作成中)
 
 ## 機能一覧
-
 ### 認証
 * サインイン、サインアップ機能（devise)
     * email、パスワード、ユーザー名、トプ画、プロフィールの設定（サインイン時はemailとパスワードのみ）
@@ -34,17 +38,22 @@
 * Youtube動画は、URLを記入することで投稿が可能
 * 投稿したアカウント内でのみ、投稿内容の削除が可能
 
-## 検索機能
+### 検索機能
 * ユーザー名で検索が可能
 
-## ふぁぼ機能
+### ふぁぼ機能
 * 投稿に対して、いいねをすることが可能
 * Ajaxを用いた非同期いいねが可能
 
-## コメント機能
+### コメント機能
 * 投稿に対して、コメントをすることが可能
 * Ajaxを用いた非同期コメントが可能
 
-## プロフィール編集機能
+### プロフィール編集機能
 * アカウントのメインページにおいて、プロフィールの編集が可能
     * email、パスワード、ユーザー名、トプ画、プロフィールの変更が可能
+
+## 今後適用予定の機能
+* Google Map APIを用いた、投稿画像・動画の位置情報共有機能
+* youtube以外の動画投稿機能
+
