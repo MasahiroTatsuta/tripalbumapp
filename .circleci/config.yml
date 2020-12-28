@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: ~/myproject
@@ -30,7 +30,13 @@ jobs:
           name: update bundler
           command: |
             gem update --system
+            gem uninstall bundler
+            rm /usr/local/bin/bundle
             gem install bundler
+      
+      - run:
+          name: Which bundler?
+          command: bundle -v
       
       - run:
           name: install gem dependencies
