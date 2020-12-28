@@ -100,7 +100,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "43:7a:97:d7:42:8a:cf:aa:39:02:ec:62:fc:63:92:47"
-      - run: ssh $SSH_KEY "/var/www/tripalbumapp/deploy-me.sh"
+      - run: ssh tripalbumlogin.pem "/var/www/tripalbumapp/deploy-me.sh"
 
 workflows:
   version: 2
