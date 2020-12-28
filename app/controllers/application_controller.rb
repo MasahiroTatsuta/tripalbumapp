@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).page(params[:page])
+    @users = @q.result(distinct: true)
   end
 end

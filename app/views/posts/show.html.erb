@@ -91,4 +91,22 @@
       </div>
     </div>
   </div>
+  <div id='map'></div>
 </div>
+
+<style>
+#map{
+  height: 400px;
+}
+</style>
+
+<script>
+function initMap(){
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 8
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyBbaOdNUiWMAmg9pxkT-u696k-UwXACu9w&callback=initMap" async defer></script>
+

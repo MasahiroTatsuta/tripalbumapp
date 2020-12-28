@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.page(params[:page]).order('created_at DESC')
+    @posts = Post.all.order('created_at DESC')
     @posts = Post.tagged_with(params[:tag_name].to_s) if params[:tag_name]
   end
 

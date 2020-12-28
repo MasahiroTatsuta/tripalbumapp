@@ -24,7 +24,6 @@ gem 'acts-as-taggable-on'
 gem 'autoprefixer-rails'
 gem 'bootstrap', '~> 4.4.1'
 gem 'bootstrap-social-rails'
-gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass'
 gem 'devise', '~> 4.7.1'
 gem 'dotenv-rails'
@@ -35,7 +34,6 @@ gem 'font-awesome-sass'
 gem 'gon'
 gem 'image_processing'
 gem 'jquery-rails'
-gem 'kaminari'
 gem 'meta-tags'
 gem 'mini_magick'
 gem 'omniauth'
@@ -45,10 +43,9 @@ gem 'ransack'
 gem 'rspec-rails', '~> 3.6.0'
 gem 'ruby-oembed'
 gem 'spring-commands-rspec'
-gem 'will_paginate', '3.1.6'
-gem 'aws-sdk-codedeploy', '~> 1.37'
 gem 'aws-sdk-s3', '~> 1.2'
-gem 'pagy', '~> 2.1', '>= 2.1.3'
+gem "gmaps4rails"
+gem "geocoder"
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
