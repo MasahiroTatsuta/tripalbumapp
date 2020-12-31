@@ -94,19 +94,35 @@
   <div id='map'></div>
 </div>
 
-<style>
+<style type="text/css">
 #map{
   height: 400px;
 }
 </style>
 
-<script>
-function initMap(){
-  let map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 8
-  });
-}
+<script type="text/javascript">
+function initMap() {
+    var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15, 
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '観光地の名前：<%= @post.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyBbaOdNUiWMAmg9pxkT-u696k-UwXACu9w&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<% ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
 

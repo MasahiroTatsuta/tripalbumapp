@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   validates :caption, presence: true, length: { maximum: 100 }
   has_one_attached :avatar
   has_many_attached :images
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   acts_as_taggable
 
   def liked_by(user)

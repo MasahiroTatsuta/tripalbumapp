@@ -26,7 +26,11 @@
             <div class="uploader">
               <p>youtube動画アップロード</p>
             </div>
-            <%= f.text_field :youtube_url, class: "form-control", placeholder: "youtube動画のurlを入れる" %> 
+            <%= f.text_field :youtube_url, class: "form-control", placeholder: "youtube動画のurlを入れる" %>
+            <div class="uploader">
+              <p>観光地の名前</p>
+            </div>
+            <%= f.text_field :address, class: "form-control", placeholder: "住所" %>
           </div>
           <div class="text-center push-btn">
             <%= f.submit "投稿する", class: "btn btn-primary" %>
