@@ -107,10 +107,10 @@ workflows:
   build-deploy:
     jobs:
       - deploy
-        # - build
-        # - deploy:
-        #     requires:
-        #       - build
-        #     filters:
-        #       branches:
-        #         only: main
+        - build
+        - deploy:
+            requires:
+              - build
+            filters:
+              branches:
+                only: main
