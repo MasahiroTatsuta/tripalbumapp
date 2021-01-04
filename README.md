@@ -20,11 +20,13 @@
 
 * 自動テスト・デプロイ用パイプライン (Circleci)
 
+* API(Google Maps API(Maps JavaScript API, Geocoding API))
+
 ## インフラ構成
 ![インフラ構成図](https://user-images.githubusercontent.com/64494694/103482821-54997900-4e26-11eb-89b0-2cd4418420df.jpg)
 
 ## DB構成
-後日掲載予定 (作成中)
+![er](https://user-images.githubusercontent.com/64494694/103537408-b108a100-4ed7-11eb-9d57-c4af6ad1ea2e.jpg)
 
 ## 機能一覧
 ### 認証
@@ -36,6 +38,7 @@
 ### 投稿機能
 * 画像・youTube動画投稿が可能（つぶやき・ハッシュタグ機能付き）
 * Youtube動画は、URLを記入することで投稿が可能
+* 投稿した画像及び動画の場所の名称または住所から、Googleマップを表示可能
 * 投稿したアカウント内でのみ、投稿内容の削除が可能
 
 ### 検索機能
@@ -54,6 +57,5 @@
     * email、パスワード、ユーザー名、トプ画、プロフィールの変更が可能
 
 ## 今後適用予定の機能
-* Google Map APIを用いた、投稿画像・動画の位置情報共有機能
 * youtube以外の動画投稿機能
 
