@@ -42,6 +42,10 @@
 * Youtube動画は、URLを記入することで投稿が可能
 * 投稿した画像及び動画の場所の名称または住所から、Googleマップを表示可能
 * 投稿したアカウント内でのみ、投稿内容の削除が可能
+![127 0 0 1_3000_posts_new](https://user-images.githubusercontent.com/64494694/103657531-5e011d80-4fad-11eb-8dd3-a6e75cf7c56c.png)
+
+![127 0 0 1_3000_posts_3](https://user-images.githubusercontent.com/64494694/103657748-9dc80500-4fad-11eb-8660-8ebcde9372db.png)
+
 
 ### 検索機能
 * ユーザー名で検索が可能
