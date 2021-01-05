@@ -34,7 +34,7 @@
     * email、パスワード、ユーザー名、トプ画、プロフィールの設定（サインイン時はemailとパスワードのみ）
     * Googleアカウントを用いたサインイン・サインアップ機能
     * ゲストログイン機能（ゲストユーザーは退会、プロフィール変更不可）
-![www tripalbumapp com_ (2)](https://user-images.githubusercontent.com/64494694/103654695-8d159000-4fa9-11eb-85a1-e82be5f0152b.png) ![www tripalbumapp com_ (2)](https://user-images.githubusercontent.com/64494694/103654784-ab7b8b80-4fa9-11eb-99c1-58d645412db5.png)
+![www tripalbumapp com_ (2)](https://user-images.githubusercontent.com/64494694/103654695-8d159000-4fa9-11eb-85a1-e82be5f0152b.png)![www tripalbumapp com_ (2)](https://user-images.githubusercontent.com/64494694/103654784-ab7b8b80-4fa9-11eb-99c1-58d645412db5.png)
 
 
 ### 投稿機能
