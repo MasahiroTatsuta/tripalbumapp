@@ -26,10 +26,8 @@
 
 ## インフラ構成
 ![インフラ構成図](https://user-images.githubusercontent.com/64494694/103482821-54997900-4e26-11eb-89b0-2cd4418420df.jpg)
-
 ## DB構成
 ![er](https://user-images.githubusercontent.com/64494694/103537408-b108a100-4ed7-11eb-9d57-c4af6ad1ea2e.jpg)
-
 ## 機能一覧
 ### 認証
 * サインイン、サインアップ機能（devise)
