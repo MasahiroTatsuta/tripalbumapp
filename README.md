@@ -4,19 +4,19 @@
 このアプリは、写真及びYouTube動画を用いた旅行において楽しかったことやおすすめスポットなどを共有することで、また安心して旅行出来るようになるまでに旅行に対するモチベーションを高めることを目的としたアプリです。
 
 ## 使用技術
-* フロントエンド (HTML, CSS(Sass), Bootstrap4, Javascript(JQuery))
+* フロントエンド (HTML, CSS(Sass), Bootstrap4, Javascript）
 
 * バックエンド (Ruby 2.6.3, Ruby on Rails 6.0.3.3)
 
-* データベース (Mysql)
+* データベース (Mysql5.7)
 
 * テスト (Rspec, FactoryBot, shoulda_matcher)
 
 * Webサーバ (Puma + Nginx(socket通信))
 
-* 環境構築用コンテナ (docker, docker-compose)
+* 開発・本番用環境構築 (docker, docker-compose)
 
-* AWS(VPC, EC2, ALB, Route53, CloudWatch, ACM, CLI)
+* AWS(VPC, EC2, RDS(Mysql5.7), ALB, Route53, ACM, CLI)
 
 * 自動テスト・デプロイ用パイプライン (Circleci)
 
