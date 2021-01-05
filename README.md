@@ -44,7 +44,7 @@
 * 投稿したアカウント内でのみ、投稿内容の削除が可能
 ![127 0 0 1_3000_posts_new](https://user-images.githubusercontent.com/64494694/103657531-5e011d80-4fad-11eb-8dd3-a6e75cf7c56c.png)
 
-![127 0 0 1_3000_posts_3](https://user-images.githubusercontent.com/64494694/103657748-9dc80500-4fad-11eb-8660-8ebcde9372db.png)
+![127 0 0 1_3000_posts_3 (1)](https://user-images.githubusercontent.com/64494694/103658022-031bf600-4fae-11eb-9796-566f1c92914e.png)
 
 
 ### 検索機能
