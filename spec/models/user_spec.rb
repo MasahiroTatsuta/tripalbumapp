@@ -20,13 +20,13 @@ RSpec.describe User, type: :model do
     end
 
     it '名前がなければ無効な状態であること' do
-      @user.name = ''
+      @user.name = 'a' * 101
       expect(@user.valid?).to eq(false)
     end
 
     it 'ユーザーネームがなければ無効な状態であること' do
       @user.username = ''
-      expect(@user.valid?).to eq(true)
+      expect(@user.valid?).to eq(false)
     end
 
     it 'パスワードがなければ無効な状態であること' do

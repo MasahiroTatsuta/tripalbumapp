@@ -321,6 +321,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    shoulda-matchers (4.4.1)
+      activesupport (>= 4.2.0)
     spring (2.1.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -404,6 +406,7 @@ DEPENDENCIES
   ruby-oembed
   sassc-rails
   selenium-webdriver
+  shoulda-matchers
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
@@ -412,4 +415,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   2.2.3
+   2.2.4

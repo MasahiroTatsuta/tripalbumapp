@@ -13,12 +13,9 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 6.0', '>= 6.0.3.3'
 gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
-# gem 'therubyracer', platforms: :ruby
 gem 'coffee-rails', '~> 5.0.0'
 gem 'jbuilder', '~> 2.5'
 gem 'turbolinks', '~> 5'
-# gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower'
 gem 'acts-as-taggable-on'
 gem 'autoprefixer-rails'
@@ -40,12 +37,14 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'rails-i18n'
 gem 'ransack'
-gem 'rspec-rails', '~> 3.6.0'
 gem 'ruby-oembed'
 gem 'spring-commands-rspec'
 gem 'aws-sdk-s3', '~> 1.2'
 gem "gmaps4rails"
 gem "geocoder"
+# gem 'therubyracer', platforms: :ruby
+# gem 'redis', '~> 4.0'
+# gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -53,6 +52,8 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.6.0'
+  gem 'shoulda-matchers'
 end
 
 group :development do

@@ -8,7 +8,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
+  validates :name, presence: true
   validates :name, presence: true, length: { maximum: 50 }
+  validates :username, presence: true, length: { maximum: 50 } 
+  validates :password, presence: true, length: { maximum: 50 }
+
   has_one_attached :avatar
 
   acts_as_followable
