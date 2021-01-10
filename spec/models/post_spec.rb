@@ -6,7 +6,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'ファクトリで関連するデータを生成する' do
-    post = create(:post)
+    post = build(:post)
     puts "This note's user is #{post.user.inspect}"
   end
 
