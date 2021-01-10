@@ -19,7 +19,7 @@ RSpec.describe Post, type: :model do
     expect(@post.valid?).to eq(false)
   end
 
-  it 'キャプションが100文字以上であれば無効な状態であること' do
+  it 'キャプションが100文字以上であると無効な状態であること' do
     @post.caption = 'a' * 101
     expect(@post.valid?).to eq(false)
   end
