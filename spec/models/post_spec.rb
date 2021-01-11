@@ -23,9 +23,4 @@ RSpec.describe Post, type: :model do
     @post.caption = 'a' * 101
     expect(@post.valid?).to eq(false)
   end
-
-  it '観光地の名前または住所がなければ無効な状態であること' do
-    @post.address = ''
-    expect(@post.valid?).to eq(false)
-  end 
 end
