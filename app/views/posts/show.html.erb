@@ -101,7 +101,7 @@
 </style>
 
 <script type="text/javascript">
-function initMap() {
+  function initMap() {
     var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 15, 
