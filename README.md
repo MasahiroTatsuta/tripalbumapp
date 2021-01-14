@@ -35,7 +35,7 @@ https://www.tripalbumapp.com/
 * サインイン、サインアップ機能（devise)
     * email、パスワード、ユーザー名、トプ画、プロフィールの設定（サインイン時はemailとパスワードのみ）
     * ゲストログイン機能（ゲストユーザーは退会、プロフィール変更不可）
-    ![www tripalbumapp com_ (2)](https://user-images.githubusercontent.com/64494694/103654695-8d159000-4fa9-11eb-85a1-e82be5f0152b.png)![www tripalbumapp com_ (2)](https://user-images.githubusercontent.com/64494694/103654784-ab7b8b80-4fa9-11eb-99c1-58d645412db5.png)
+    ![www tripalbumapp com_sign_in (1)](https://user-images.githubusercontent.com/64494694/104554395-79d88380-567f-11eb-9571-d446478eff4f.png)![www tripalbumapp com_sign_in (2)](https://user-images.githubusercontent.com/64494694/104554518-a7253180-567f-11eb-8779-86d6a82ee195.png)
 
 
 ### 投稿機能
