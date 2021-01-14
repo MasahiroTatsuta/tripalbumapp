@@ -1,6 +1,8 @@
 # tripalbum
 
 ## 概要
+https://www.tripalbumapp.com/
+
 このアプリは、写真及びYouTube動画を用いた旅行において楽しかったことやおすすめスポットなどを共有することで、また安心して旅行出来るようになるまでに旅行に対するモチベーションを高めることを目的としたアプリです。
 
 ![www tripalbumapp com_ (1)](https://user-images.githubusercontent.com/64494694/103653085-59d20180-4fa7-11eb-81f1-276862ad972f.png)
